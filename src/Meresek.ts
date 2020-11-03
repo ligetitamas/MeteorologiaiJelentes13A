@@ -1,4 +1,4 @@
-export default abstract class Meresek{
+export default class Meresek{
     protected _telepules: string;
     protected _ido: Date;
     protected _szelIrany: string;
