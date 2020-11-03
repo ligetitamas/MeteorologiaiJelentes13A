@@ -1,4 +1,3 @@
-import { resolve } from 'path';
 
 export default class Meresek{
     protected _telepules: string;

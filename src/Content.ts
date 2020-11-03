@@ -26,7 +26,7 @@ export default class Content {
 
         // Kezd a kódolást innen -->
         let bekértVáros: string=params.város as string;
-        const megold: Megoldás=new Megoldás("tavirathu13.txt");
+        const megold: Megoldás=new Megoldás("./tavirathu13.txt");
         res.write(`2. feladat: Adja meg egy város kódját: <input type='text' value=${bekértVáros} onChange='this.form.submit();' `);
 
         // <---- Fejezd be a kódolást
