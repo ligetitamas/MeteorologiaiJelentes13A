@@ -1,3 +1,5 @@
+import { resolve } from 'path';
+
 export default class Meresek{
     protected _telepules: string;
     protected _ido: Date;
@@ -25,7 +27,7 @@ export default class Meresek{
    
     constructor(sor: string) {
         const m: string[]=sor.split(" ");
-        this._telepules=m[0];
+        this._telepules=m[0];      
         const óra: number=parseInt(m[1].substr(0,2));
         const perc: number=parseInt(m[1].substr(2,2));
         this._ido=new Date(óra,perc);

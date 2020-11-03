@@ -4,7 +4,7 @@ import Meresek from "./Meresek";
 export default class Megoldás{
     private _meresAdatok: Meresek[]=[];  
 
-
+    
    
     constructor(forrás: string) {
         fs.readFileSync(forrás).toString().split("\n").forEach(i=>{
