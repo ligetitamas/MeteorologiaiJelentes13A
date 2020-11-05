@@ -33,6 +33,24 @@ export default class Content {
         res.write("</br>");
         //3. feladat
         res.write(`3. feladat:\nA legalacsonyabb hőmérséklet: ${megold.legalacsonyabbMeres} fok\nA legmagasabb hőmérséklet: ${megold.legalacsonyabbMeres} fok`);
+        res.write("</br>");
+        //4. eladat
+        res.write(`4. feladat`);
+        res.write("</br>");
+        megold.szelCsend.forEach(i => {
+            res.write(i);
+            res.write("</br>");
+        });
+        res.write("5. felaat:");
+        res.write("</br>");
+        megold.Statisztika.forEach(i => {
+            
+            res.write(`${i.város} ${i.középhőmérséklet === -1 ? "NA": "Középhőmérséklet:" + i.középhőmérséklet}; Hőmérséklet-ingadozás: ${i.hőmérséklet_ingadozás} `);
+            res.write("</br>");
+        });
+
+
+
         // <---- Fejezd be a kódolást
 
         res.write("</pre></form>");
