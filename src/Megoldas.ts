@@ -63,8 +63,7 @@ export default class Megoldás {
         });
         return szelCsendMeresek;
     }
-    public get Statisztika(): Istatisztika[] {
-       
+    public get Statisztika(): Istatisztika[] {       
         let statisztikák: Istatisztika[] = [];
         this._meresAdatok.forEach(x => {
             let teszt: boolean = false;
