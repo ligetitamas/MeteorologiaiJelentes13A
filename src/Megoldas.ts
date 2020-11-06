@@ -64,8 +64,7 @@ export default class Megoldás {
         return szelCsendMeresek;
     }
     public get Statisztika(): Istatisztika[] {
-
-        let kozephomerseklet: number;
+       
         let statisztikák: Istatisztika[] = [];
         this._meresAdatok.forEach(x => {
             let teszt: boolean = false;
