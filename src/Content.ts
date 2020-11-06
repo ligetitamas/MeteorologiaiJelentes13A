@@ -25,12 +25,13 @@ export default class Content {
         const params = url.parse(req.url as string, true).query;
 
         // Kezd a kódolást innen -->
-        let bekértVáros: string = params.város as string;
+        
         const megold: Megoldás = new Megoldás("./tavirathu13.txt");
         //2. feladat
-        res.write(`2. feladat: Adja meg egy város kódját: <input type='text' name="város" onChange='this.form.submit();'>`);
-
+        res.write(`2. feladat: Adja meg egy város kódját: <input type='text' name="város" placeholder="pl. BP" value="${params.város}" onChange='this.form.submit();'>`);
+        let bekértVáros: string = params.város as string;
         res.write("</br>");
+        res.write(`Az utolsó mérési adat a megadott településről: ${megold.LegutolsoMeres(bekértVáros)}-kor érkezett`);
         //3. feladat
         res.write(`3. feladat:\nA legalacsonyabb hőmérséklet: ${megold.legalacsonyabbMeres} fok\nA legmagasabb hőmérséklet: ${megold.legalacsonyabbMeres} fok`);
         res.write("</br>");
@@ -41,6 +42,7 @@ export default class Content {
             res.write(i);
             res.write("</br>");
         });
+        //5. feladat
         res.write("5. felaat:");
         res.write("</br>");
         megold.Statisztika.forEach(i => {
@@ -49,8 +51,9 @@ export default class Content {
             res.write("</br>");
         });
 
-
-
+        //6. feladat
+        megold.Fájlbaír();
+        res.write("A fájlok elkészültek");
         // <---- Fejezd be a kódolást
 
         res.write("</pre></form>");

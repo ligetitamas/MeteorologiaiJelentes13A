@@ -38,6 +38,22 @@ export default class Megoldás {
         });
         return `${varos} ${ido.getHours()}:${ido.getMinutes()} ${meres}`;
     }
+
+    public LegutolsoMeres(bekértVáros:string):any{
+        let meres:Date=new Date;
+        meres.setHours(0);
+        meres.setMinutes(0);
+        this._meresAdatok.forEach(x => {
+            if(bekértVáros==x.Telepules&&x.Ido>meres)
+            {
+                meres.setHours(x.Ido.getHours());
+                meres.setMinutes(x.Ido.getMinutes());
+            }
+        });
+        return `${meres.getHours()}:${meres.getMinutes()}`;
+        
+    }
+
     public get szelCsend(): string[] {
         let szelCsendMeresek: string[] = [];
         this._meresAdatok.forEach(i => {
@@ -47,14 +63,6 @@ export default class Megoldás {
         });
         return szelCsendMeresek;
     }
-   
-
-
-
-
-
-
-
     public get Statisztika(): Istatisztika[] {
 
         let kozephomerseklet: number;
@@ -101,7 +109,21 @@ export default class Megoldás {
     }
 
     public Fájlbaír():void{
-        const ki:string[]=[];
+        this.Statisztika.forEach(x => {
+            let kiir:string=`${x.város}\n`;
+            this._meresAdatok.forEach(y => {
+                if(y.Telepules==x.város)
+                {
+                    kiir+=`${y.Ido.getHours()}:${y.Ido.getMinutes()} `
+                    for (let i = 0; i < parseInt(y.SzelErosseg); i++)
+                    {
+                        kiir+="#";
+                    }
+                    kiir+="\n";
+                }
+            });
+            fs.writeFileSync(`${x.város}.txt`,kiir)         
+        });
 
 
     }
