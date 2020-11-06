@@ -28,10 +28,11 @@ export default class Content {
         
         const megold: Megoldás = new Megoldás("./tavirathu13.txt");
         //2. feladat
-        res.write(`2. feladat: Adja meg egy város kódját: <input type='text' name="város" placeholder="pl. BP" value="${params.város}" onChange='this.form.submit();'>`);
+        res.write(`2. feladat:\nAdja meg egy város kódját: <input type='text' name="város" placeholder="pl. BP" value="${params.város}" onChange='this.form.submit();'>`);
         let bekértVáros: string = params.város as string;
         res.write("</br>");
         res.write(`Az utolsó mérési adat a megadott településről: ${megold.LegutolsoMeres(bekértVáros)}-kor érkezett`);
+        res.write("</br>");
         //3. feladat
         res.write(`3. feladat:\nA legalacsonyabb hőmérséklet: ${megold.legalacsonyabbMeres} fok\nA legmagasabb hőmérséklet: ${megold.legalacsonyabbMeres} fok`);
         res.write("</br>");
@@ -53,6 +54,8 @@ export default class Content {
 
         //6. feladat
         megold.Fájlbaír();
+        res.write("6. felaat:");
+        res.write("</br>");
         res.write("A fájlok elkészültek");
         // <---- Fejezd be a kódolást
 
